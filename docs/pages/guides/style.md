@@ -31,7 +31,7 @@ options:
 ```yaml
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: "v4.4.0"
+    rev: "v5.0.0"
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
@@ -106,7 +106,7 @@ Here is the snippet to add Black to your `.pre-commit-config.yml`:
 
 ```yaml
 - repo: https://github.com/psf/black-pre-commit-mirror
-  rev: "23.7.0"
+  rev: "24.10.0"
   hooks:
     - id: black
 ```
@@ -141,7 +141,7 @@ markdown and restructured text. Note that because black is in
 
 ```yaml
 - repo: https://github.com/adamchainz/blacken-docs
-  rev: "1.16.0"
+  rev: "1.19.1"
   hooks:
     - id: blacken-docs
       additional_dependencies: [black==23.7.0]
@@ -162,7 +162,7 @@ pre-commit hook.
 
 ```yaml
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: "v0.0.287"
+  rev: "v0.9.1"
   hooks:
     - id: ruff
       args: ["--fix", "--show-fixes"]
@@ -297,7 +297,7 @@ use the manual stage, it's opt-in instead of automatic.
 
 ```yaml
 - repo: https://github.com/hadialqattan/pycln
-  rev: "v2.2.2"
+  rev: "v2.5.0"
   hooks:
     - id: pycln
       args: [--all]
@@ -337,7 +337,7 @@ the flake8 addition for pre-commit, with the `bugbear` plugin:
 
 ```yaml
 - repo: https://github.com/pycqa/flake8
-  rev: "6.1.0"
+  rev: "7.1.1"
   hooks:
     - id: flake8
       additional_dependencies: [flake8-bugbear]
@@ -410,7 +410,7 @@ pre-commit config will work:
 
 ```yaml
 - repo: https://github.com/PyCQA/isort
-  rev: "5.12.0"
+  rev: "5.13.2"
   hooks:
     - id: isort
 ```
@@ -435,7 +435,7 @@ when clearly better (please always use them, they are faster) if you set
 
 ```yaml
 - repo: https://github.com/asottile/pyupgrade
-  rev: "v3.10.1"
+  rev: "v3.19.1"
   hooks:
     - id: pyupgrade
       args: ["--py38-plus"]
@@ -480,7 +480,7 @@ The MyPy addition for pre-commit:
 
 ```yaml
 - repo: https://github.com/pre-commit/mirrors-mypy
-  rev: "v1.5.1"
+  rev: "v1.14.1"
   hooks:
     - id: mypy
       files: src
@@ -560,7 +560,7 @@ Add the following to your pre-commit config:
 
 ```yaml
 - repo: https://github.com/mgedmin/check-manifest
-  rev: "0.49"
+  rev: "0.50"
   hooks:
     - id: check-manifest
 ```
@@ -579,7 +579,7 @@ additional_dependencies: ["setuptools_scm[toml]"]
 run all checks:
 
 ```yaml
-- uses: pre-commit/action@v3.0.0
+- uses: pre-commit/action@v3.0.1
   with:
     extra_args: --show-diff-on-failure --all-files --hook-stage manual
 ```
@@ -594,7 +594,7 @@ important parts (like Python classifiers) are in sync. This tool,
 
 ```yaml
 - repo: https://github.com/asottile/setup-cfg-fmt
-  rev: "v2.4.0"
+  rev: "v2.7.0"
   hooks:
     - id: setup-cfg-fmt
       args: [--include-version-classifiers, --max-py-version=3.12]
@@ -613,7 +613,7 @@ than a list of "valid" words. To use:
 
 ```yaml
 - repo: https://github.com/codespell-project/codespell
-  rev: "v2.2.5"
+  rev: "v2.3.0"
   hooks:
     - id: codespell
       args: ["-L", "sur,nd"]
@@ -692,7 +692,7 @@ following pre-commit config:
 
 ```yaml
 - repo: https://github.com/pre-commit/mirrors-clang-format
-  rev: "v16.0.6"
+  rev: "v19.1.6"
   hooks:
     - id: clang-format
       types_or: [c++, c, cuda]
@@ -709,7 +709,7 @@ If you have shell scripts, you can protect against common mistakes using
 
 ```yaml
 - repo: https://github.com/shellcheck-py/shellcheck-py
-  rev: "v0.9.0.5"
+  rev: "v0.10.0.1"
   hooks:
     - id: shellcheck
 ```
@@ -721,7 +721,7 @@ number of different file types. An example of usage:
 
 ```yaml
 - repo: https://github.com/pre-commit/mirrors-prettier
-  rev: "v3.0.3"
+  rev: "v4.0.0"
   hooks:
     - id: prettier
       types_or: [yaml, markdown, html, css, scss, javascript, json]
@@ -789,7 +789,7 @@ You can adapt most tools to notebooks using
 
 ```yaml
 - repo: https://github.com/nbQA-dev/nbQA
-  rev: "1.7.0"
+  rev: "1.9.1"
   hooks:
     - id: nbqa-ruff
       additional_dependencies: [ruff==0.0.275]
@@ -816,7 +816,7 @@ You also might like the following hook, which cleans Jupyter outputs:
 
 ```yaml
 - repo: https://github.com/kynan/nbstripout
-  rev: "0.6.1"
+  rev: "0.8.1"
   hooks:
     - id: nbstripout
 ```
