@@ -70,14 +70,14 @@ the name "CI/CD", you can just combine the two `on` dicts.
 dist:
   runs-on: ubuntu-latest
   steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 0
 
     - name: Build SDist and wheel
       run: pipx run build
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v7
       with:
         path: dist/*
 
@@ -118,7 +118,7 @@ later in the upload action for the release job, as well).
 >
 > ```yaml
 > steps:
->   - uses: actions/checkout@v4
+>   - uses: actions/checkout@v7
 >   - uses: hynek/build-and-inspect-python-package@v1
 > ```
 >
@@ -140,7 +140,7 @@ publish:
   runs-on: ubuntu-latest
   if: github.event_name == 'release' && github.event.action == 'published'
   steps:
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v8
       with:
         name: artifact
         path: dist
@@ -166,7 +166,7 @@ publish:
   runs-on: ubuntu-latest
   if: github.event_name == 'release' && github.event.action == 'published'
   steps:
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v8
       with:
         name: artifact
         path: dist
@@ -212,7 +212,7 @@ jobs:
   dist:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -227,7 +227,7 @@ jobs:
     if: github.event_name == 'release' && github.event.action == 'published'
 
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v8
         with:
           name: artifact
           path: dist
@@ -257,7 +257,7 @@ jobs:
   dist:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -269,7 +269,7 @@ jobs:
     if: github.event_name == 'release' && github.event.action == 'published'
 
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v8
         with:
           name: Packages
           path: dist

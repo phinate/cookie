@@ -84,7 +84,7 @@ make_sdist:
   name: Make SDist
   runs-on: ubuntu-latest
   steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 0 # Optional, use if you use setuptools_scm
         submodules: true # Optional, use if you have submodules
@@ -92,7 +92,7 @@ make_sdist:
     - name: Build SDist
       run: pipx run build --sdist
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v7
       with:
         path: dist/*.tar.gz
 ```
@@ -116,15 +116,15 @@ build_wheels:
       os: [ubuntu-latest, windows-latest, macos-latest]
 
   steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 0
         submodules: true
 
-    - uses: pypa/cibuildwheel@v2.15
+    - uses: pypa/cibuildwheel@v4.2
 
     - name: Upload wheels
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v7
       with:
         path: wheelhouse/*.whl
 ```
@@ -175,7 +175,7 @@ upload_all:
   runs-on: ubuntu-latest
   if: github.event_name == 'release' && github.event.action == 'published'
   steps:
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v8
       with:
         name: artifact
         path: dist
@@ -201,7 +201,7 @@ upload_all:
   runs-on: ubuntu-latest
   if: github.event_name == 'release' && github.event.action == 'published'
   steps:
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v8
       with:
         name: artifact
         path: dist
