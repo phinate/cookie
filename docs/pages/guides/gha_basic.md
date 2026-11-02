@@ -59,11 +59,11 @@ lint:
   name: Lint
   runs-on: ubuntu-latest
   steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-python@v4
+    - uses: actions/checkout@v7
+    - uses: actions/setup-python@v7
       with:
         python-version: "3.x"
-    - uses: pre-commit/action@v3.0.0
+    - uses: pre-commit/action@v3.0.1
 ```
 
 {% endraw %}
@@ -97,12 +97,12 @@ tests:
         - "3.12"
   name: Check Python ${{ matrix.python-version }}
   steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 0 # Only needed if using setuptools-scm
 
     - name: Setup Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v7
       with:
         python-version: ${{ matrix.python-version }}
         allow-prereleases: true
@@ -395,7 +395,7 @@ Python version might come as a surprise. You can do that, though, using
 {% raw %}
 
 ```yaml
-- uses: actions/setup-python@v4
+- uses: actions/setup-python@v7
   id: python
   with:
     python-version: "3.11"
@@ -493,12 +493,12 @@ jobs:
       # more here if you have more situations to detect
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Changed test-related files
         if: github.event_name == 'pull_request'
         id: changed-tests-files
-        uses: Ana06/get-changed-files@v2.2.0
+        uses: Ana06/get-changed-files@v2.3.0
         with:
           format: "json"
           filter: |
@@ -639,7 +639,7 @@ configure Pages.
 ```yaml
 - name: Setup Pages
   id: pages
-  uses: actions/configure-pages@v3
+  uses: actions/configure-pages@v6
 ```
 
 {% raw %}
@@ -654,7 +654,7 @@ this action later; specifically, may want to use
 
 ```yaml
 - name: Upload artifact
-  uses: actions/upload-pages-artifact@v2
+  uses: actions/upload-pages-artifact@v5
 ```
 
 This actions defaults to uploading `_site`, but you can give any `with: path:`
@@ -676,7 +676,7 @@ deploy:
   steps:
     - name: Deploy to GitHub Pages
       id: deployment
-      uses: actions/deploy-pages@v2
+      uses: actions/deploy-pages@v5
 ```
 
 {% endraw %}
